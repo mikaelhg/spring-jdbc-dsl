@@ -1,0 +1,13 @@
+group 'io.mikael.dsl'
+version '1.0-SNAPSHOT'
+
+allprojects {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+}
+
+subprojects {
+    version = '1.0'
+}

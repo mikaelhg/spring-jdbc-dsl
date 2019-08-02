@@ -1,0 +1,4 @@
+rootProject.name = 'spring-jdbc-dsl'
+
+include 'rowmapper-java8'
+include 'rowmapper-kotlin'
