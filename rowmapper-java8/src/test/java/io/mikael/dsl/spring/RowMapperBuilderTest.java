@@ -20,7 +20,15 @@ public class RowMapperBuilderTest {
         final RowMapper<String> m1 = RowMappers.<String>builder().supplier(String::new).build();
         final RowMapper<String> m2 = RowMappers.builder(String::new).build();
         final RowMapper<Foo> m3 = RowMappers.builder(Foo::new).build();
+        final RowMapper<Foo> m4 = RowMappers.builder(new Foo()).build();
 //        final RowMapper<Foo> m4 = RowMappers.builder(Bar::new).build(); won't compile
+    }
+
+    @Test
+    public void exceptionHandler() {
+        final RowMapper<Foo> m4 = RowMappers.builder(new Foo())
+                .except(RuntimeException.class, e -> {})
+                .build();
     }
 
 }
