@@ -2,6 +2,7 @@ package io.mikael.dsl.spring;
 
 import org.springframework.jdbc.core.RowMapper;
 
+import java.sql.ResultSet;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.function.Consumer;
@@ -14,7 +15,12 @@ public class RowMapperBuilder<T> {
     private List<Consumer<? extends Exception>> exceptionHandlers = concurrentList();
 
     public RowMapper<T> build() {
-        return null;
+        return new RowMapper<T>() {
+            @Override
+            public T mapRow(final ResultSet rs, final int rowNum) {
+                return null;
+            }
+        };
     }
 
     public RowMapperBuilder<T> supplier(final Supplier<T> supplier) {
